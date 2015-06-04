@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="float_right">
+			<a bgx-filter-popover filter="vm.filter" search="vm.search" module="book" class="fa fa-search font18 pad10"></a>
+			<span class="font18 pad10">|</span>
+			<a class="fa fa-sort font18 pad10"></a>
+			<span class="font18 pad10">|</span>
+			<a class="fa fa-download font18 pad10"></a>
+			<span class="font18 pad10">|</span>
+			<a class="fa fa-plus font18 pad10 cursor" ui-sref="root.book.add"></a>	
+	</div>
+	<table id="bookDataTable" datatable="bookDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover"></table>
+</div>

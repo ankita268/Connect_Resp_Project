@@ -1,0 +1,11 @@
+{
+	"data": {
+		"datasource": {
+			"list":{ 
+				"url":"core/footer",
+				"method": "POST"
+			}
+		},
+		"moduleconfigs": {}
+	}
+}

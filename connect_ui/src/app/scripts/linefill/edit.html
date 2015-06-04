@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left col-xs-12 col-md-8 padLeft0">{{ vm.title }}</div>
+	
+	<div class="col-xs-12 col-md-8 padLeft0" ng-init="vm.loadStateParams()">
+		<form class="form-horizontal" ng-submit="vm.submit()">
+	        <formly-form model="vm.linefillEditModel" fields="vm.linefillFields" >
+		  		<div class="col-sm-4 control-label padLeft0"> </div>
+  				<div class="col-sm-8 labelRight">	
+		  			<button type="submit" class="btn btn-default submitBtn customBtn marTop15 marRight15">Submit</button>
+		  			<button type="button" class="btn btn-default cancelBtn customBtn marTop15" ui-sref="root.linefill.list">Cancel</button>
+		  		</div>
+			</formly-form>
+	    </form>
+    </div>		
+</div>

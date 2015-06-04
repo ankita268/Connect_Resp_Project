@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left">{{vm.title}}</div>
+	
+	<div class="searchBtn " ng-init="vm.getFilterDataList()">
+		<a bgx-filter-popover filter="vm.filter" search="vm.search" module="delivery" class="fa fa-search font18 pad10" placement="bottomRight"></a>
+	</div>
+	
+	<table id="deliveryDataTable" datatable="deliveryDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table>
+
+	<form id="deliveryForm" action="" method="post" style="display: none;">
+		<input type="hidden"  name="periodMonth" id="exportPeriodMonth"/>
+		<input type="hidden"  name="periodYear" id="exportPeriodYear"/>
+		<input type="hidden"  name="carrierID" id="exportCarrierID"/>
+	</form>
+</div> 

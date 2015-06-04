@@ -1,0 +1,28 @@
+// Large screen / wide desktop
+$container-large-desktop:      (1190px);
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop ;
+
+$brand-primary:#596466;
+$link-color:$brand-primary;
+$link-hover-color: darken($link-color, 15%);
+
+$btn-default-color:#596466;
+$btn-default-bg:#fff;
+$btn-default-border:#ccc; 
+
+$modal-header-border-color:   #ddd;
+
+$navbar-default-color:#777;
+$navbar-default-bg:  #596466;
+$navbar-default-border:darken($navbar-default-bg, 6.5%);
+$navbar-default-link-color:#E4BA4C;
+$navbar-default-link-hover-color:#E4BA4C;
+$navbar-default-link-hover-bg:transparent;
+$navbar-default-link-active-color:#ffffff;
+$navbar-default-link-active-bg:darken($navbar-default-bg, 6.5%);
+
+$dropdown-link-color:#E4BA4C;
+$dropdown-link-hover-color:#E4BA4C;
+$dropdown-link-active-color:#fff;
+$dropdown-caret-color:#E4BA4C;

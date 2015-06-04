@@ -1,0 +1,65 @@
+{
+	"data": {
+		"datasource": {
+			"list":{ 
+				"url":"core/group",
+				"method": "POST"
+			},
+			"add":{ 
+				"url":"core/group/add",
+				"method": "POST"
+			},
+			"update":{ 
+				"url":"core/group/update",
+				"method": "PUT"
+			},
+			"delete":{ 
+				"url":"core/group/",
+				"method": "DELETE"
+			},
+			"get": { 
+				"url":"core/group/",
+				"method": "POST"
+			}
+		},
+		"moduleconfigs": {
+			"list": {
+				"serverSide":"true",
+				"responsive":"true",
+				"ajax":{				
+					"url":"core/group",
+					"dataSrc":"aoData",
+					"method":"POST",
+					"data": {						  
+					   "action": "search",
+					   "sort": ""						   
+					}
+				},	
+				"searching": false,
+				"ordering": false,
+				"lengthChange": false,
+				"pagingType": "full_numbers",
+				"processing": false,
+				"aoColumns":  [{
+					"mData":"name",
+					"sTitle":"Name"
+				},{
+					"mData":"type",		
+					"sTitle":"Type"
+				},{
+					"mData":"status",		
+					"sTitle":"Status"
+				}],
+				"drawCallback": ""
+			},
+			"filter": [{"name":"groupName",	"displayName":"Group Name",	"type":"text", "options":{}, "data":[]},
+						{"name":"groupType","displayName":"Group Type",	"type":"list", "options":{ "multiselect":"true", "search":"false" }, "data":["Internal","External"]}],
+			"sorting":[{"id": "1", "sort": "name", "dir":"Asc", "text":"Group Name By Ascending"},
+						{ "id": "2", "sort": "name", "dir":"Desc", "text":"Group Name By Descending"},
+						{ "id": "3", "sort": "type", "dir":"Asc", "text":"Group Type By Ascending"},
+						{ "id": "4", "sort": "type", "dir":"Desc", "text":"Group Type By Descending"},
+						{ "id": "5", "sort": "status", "dir":"Asc", "text":"Group Status By Ascending"},
+						{ "id": "6", "sort": "status", "dir":"Desc", "text":"Group Status By Descending"}]
+		}
+	}
+}

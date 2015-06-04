@@ -1,0 +1,22 @@
+<div class="top-header clearfix" >
+	<nav class="navbar navbar-default height38" role="navigation" id="slide-nav">
+		<div class="container-fluid padLeft0">
+			<div id="slidemenu" >
+				   <ul class="nav navbar-nav NoMinWidth" ng-repeat="menu in vm.menus">
+					  <li  ng-if="menu.list.length=='0'"><a ng-href="{{ menu.link }}" ng-class="vm.menuClass('{{ menu.link }}')">{{ menu.name }}</a></li>
+					  <li ng-if="menu.list.length!='0'" class="dropdown dropdownMargin marTopNone">
+						  <div class="btn-group" dropdown is-open="status.isopen" >
+							<a class="dropdown_link" dropdown-toggle ng-disabled="disabled">
+								{{ menu.name }}  <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li ng-repeat="submenu in menu.list"><a href="{{submenu.link}}" ng-class="vm.menuClass('{{ submenu.link }}')">{{ submenu.name }} </a></li>
+							</ul>
+						  </div>
+					  </li>
+				  </ul>
+		
+			</div>
+		</div>
+	</nav>
+</div>

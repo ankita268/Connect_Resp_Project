@@ -1,0 +1,80 @@
+<div class="container-fluid">
+
+	
+		<div class="appTitle pull-left">{{ vm.title }}</div>
+		<div class="searchBtn">
+			<a class="fa fa-edit font18 iconPad  cursor" ui-sref="root.role.edit({role_id: vm.role_id})"></a>
+			<span class="font18 iconPad ">|</span>
+			<a class="fa fa-reply font16 iconPad  cursor" ui-sref="root.role.list"></a>
+
+		</div>
+	
+	
+	<form class="form-horizontal" name="vm.editRoleForm" role="form"  ng-init="vm.getViewRole(vm.role_id)">
+	<div class="col-xs-12 col-md-12 padLeft0">
+	
+	<div class="form-group has-feedback">
+      <label class="col-sm-2 " for="inputSuccess">Role ID</label>
+      <div class="col-sm-10 ">{{vm.role_id}}</div>
+   </div>
+   
+   <div class="form-group has-feedback">
+      <label class="col-sm-2 control-label" ng-model="vm.roleName" name="roleName">Role Name</label>
+      <div class="col-sm-10 ">
+    	 {{vm.roleName}}
+	  </div>
+   </div>
+    
+   <div class="form-group has-feedback">
+      <label class="col-sm-2 control-label " for="inputSuccess">Discription</label>
+      <div class="col-sm-10 ">
+		 {{vm.comment}}
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label class="col-sm-2 control-label " for="sel1">Role Type</label>
+      <div class="col-sm-10 ">
+	      {{vm.roletype}}
+      </div>
+	  
+   </div>
+   <div class="form-group">
+      <label class="col-sm-2 control-label " for="sel1">Access Level</label>
+      <div class="col-sm-10 ">
+      {{vm.accesslevel}}
+      </div>
+	  
+   </div>
+   <div class="form-group">
+      <label class="col-sm-2 control-label " for="sel1" ng-model="vm.status">Status</label>
+      <div class="col-sm-10 ">
+     		{{vm.status}}
+      </div>
+   </div>
+   
+	
+	</div>
+	</form>
+	
+	<div class="col-xs-12 col-md-12 padLeft0">
+	<div class="appTitle pull-left pad5"><i class="fa fa-check-square-o font18">&nbsp;</i>&nbsp; Assignment</div>
+	</div>
+	
+	<div class="col-xs-12 col-md-12 padLeft0">
+	<div class="assignBox" ng-repeat="role in vm.checkedboxView">	
+		<label>		
+		<h5>Title</h5>
+		<p>{{role.text}}</p>
+		</label>
+	</div>
+	</div>
+	
+	<div class="form-group">
+	   <label class="col-sm-2 control-label hideInMobile" for=""></label>
+	   <div class="col-sm-10 "> 
+		   
+		   
+	   </div>
+	</div>
+</div>

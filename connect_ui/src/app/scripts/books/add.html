@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="appTitle pull-left col-xs-12 col-md-8 padLeft0">{{ vm.title }}</div>
+	<div class="searchBtn">
+		<a class="fa fa-reply green font20 cursor iconPad" ui-sref="root.book.list"></a>
+	</div>
+	<div class="col-xs-12 col-md-8 padLeft0">
+	<form class="form-horizontal" ng-submit="vm.submit(vm.book)" novalidate>
+        <formly-form model="vm.book" fields="vm.bookFields">
+  		<button type="submit" class="btn btn-default" >Submit</button>
+		</formly-form>
+    </form>
+    </div>	
+</div>

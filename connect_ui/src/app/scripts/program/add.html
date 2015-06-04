@@ -1,0 +1,86 @@
+
+<div class="container-fluid">
+<div class="appTitle pull-left">{{vm.title}}</div>
+<div class="searchBtn"> <a class="fa fa-reply font16 iconPad  cursor" ui-sref="root.program.list"></a>
+</div>
+ 
+<form class="form-horizontal" name="vm.uploadDocumentForm" ng-init="vm.getUploadDocument()">
+
+ <div class="form-group col-sm-12 col-xs-12 col-md-12">
+      <div class="col-sm-3 col-xs-3 col-md-3 padLeft0">URL Title*</div>
+      <div class="col-sm-5 col-xs-5 col-md-5 padLeft0">
+      <input class="form-control ng-pristine ng-valid ng-valid-pattern ng-valid-required ng-touched" id="urlTitle" type="text" placeholder="Enter Text">
+</div>
+</div>
+
+ <div class="form-group col-sm-12 col-xs-12 col-md-12 row">
+      <div class="col-sm-3 col-xs-3 col-md-3 padLeft0">
+      <label for="formly_1_horizontalSelect_period_1" class="control-label fontNormal ng-binding"> URL* </label>
+      </div>
+      <div class="col-sm-5 col-xs-5 col-md-5 padLeft0">
+      <input class="form-control ng-pristine ng-valid ng-valid-pattern ng-valid-required ng-touched" id="url" type="text" placeholder="Enter Text">
+</div> 
+</div>
+ 
+<div class="col-xs-12 col-sm-12 col-md-12">
+  
+   <div class="form-group has-feedback">
+   <tabset>
+    <tab heading="Roles">
+	 <div class="programTab1 ng-scope">
+	 <ul class="programTabContainer padLeft0">
+	  <li>
+           <span class="iconWidth"><i ng-show="vm.isAllRolesSelected()" class="fa fa-check"></i></span> 
+           <a ng-click = "vm.selectAllRoles()">Select All</a>
+      </li>
+	    <li ng-repeat="role in vm.allRoles" >
+           <span class="iconWidth"><i ng-show="vm.isRoleAssigned(role.id)" class="fa fa-check"></i></span> 
+           <a ng-click = "vm.assignRole(role.id,role.name)">{{role.name}}</a>
+        </li>
+      </ul>
+     </div> 
+    </tab>
+    <tab heading="Programs">
+     <div class="programTab1 ng-scope">
+      <ul class="programTabContainer padLeft0">
+      <li>
+           <span class="iconWidth"><i ng-show="vm.isAllProgramsSelected()" class="fa fa-check"></i></span> 
+           <a ng-click = "vm.selectAllPrograms()">Select All</a>
+      </li>
+         <li ng-repeat="program in vm.allPrograms" >
+          <span class="iconWidth"><i ng-show="vm.isProgramAssigned(program.id)" class="fa fa-check"></i></span>
+          <a ng-click = "vm.assignProgram(program.id,program.name,item)">{{program.name}}</a>
+        </li>
+      </ul>
+      </div>
+    </tab>
+    <tab heading="Shippers">
+     <div class="programTab1 ng-scope">
+        <ul class="programTabContainer padLeft0">
+          <li>
+           <span class="iconWidth"><i ng-show="vm.isAllShippersSelected()" class="fa fa-check"></i></span> 
+           <a ng-click = "vm.selectAllShippers()">Select All</a>
+      </li>
+        <li ng-repeat="shipper in vm.allShippers" >
+           <span class="iconWidth"><i ng-show="vm.isShipperAssigned(shipper.id)" class="fa fa-check"></i></span>
+           <a ng-click = "vm.assignShipper(shipper.id,shipper.name,item)">{{shipper.name}}</a>
+        </li>
+      </ul>
+      </div>
+    </tab>
+  </tabset>
+   </div>
+   
+    <div class="form-group col-xs-12 col-md-12">
+      <div class="col-md-3 col-xs-0 padLeft0 hideInMobile"></div>
+      <div class="col-md-5 col-xs-12 col-md-5 padLeft0">
+      <button type="Submit"  ng-click="vm.createDocument('false')" class="btn btn-default submitBtn customBtn marRight15">Submit</button>
+	  <button type="button" class="btn btn-default cancelBtn customBtn" ui-sref="root.program.list">Cancel</button>
+  </div>
+  </div>
+  
+
+   </div>
+    
+      </form>
+</div> 

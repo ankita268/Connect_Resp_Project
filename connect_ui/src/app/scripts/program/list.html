@@ -1,0 +1,32 @@
+<div class="container-fluid">
+<div class="appTitle pull-left">{{ vm.title }}</div>
+<div class="searchBtn ">
+     <a bgx-filter-popover filter="vm.filter" placement="bottomRight"  search="vm.search" module="program" class="fa fa-search font18 iconPad"></a>
+			<span class="font18 iconPad" ng-if ="vm.isInternal()">|</span>		 
+    <a class="fa fa-upload font18 iconPad cursor" ui-sref="root.program.uploadfile" ng-if ="vm.isInternal()" ></a>
+    <span class="font18 iconPad" ng-if ="vm.isInternal()" >|</span>
+    <a class="fa fa-plus font18 iconPad cursor" ui-sref="root.program.addnewurl" ng-if ="vm.isInternal()" ></a>
+   </div>
+   <div class="row">
+   <div class="col-md-12 col-xs-12 col-lg-12">
+     <div class="row">
+    <div class="col-md-2 col-xs-12">
+    <div class="programTab ng-scope">
+    <ul ng-init="vm.getPrograms()" class="padLeft0">
+        <li ng-repeat="choice in vm.filteredPrograms" >
+          <a ng-click="vm.selectProgram(choice.id)" class="cursor">{{choice.name}}</a><i ng-class="vm.classForSelectedProgram(choice.id)"></i>
+        </li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-md-10 col-xs-12">
+    <div ng-show ="vm.showGrid()" class="ng-hide">
+    <table id="documentDataTable" datatable="documentDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table></div>    
+    </div>
+  </div>
+    </div>
+    </div>
+    
+  
+	 
+  </div>

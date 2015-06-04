@@ -1,0 +1,24 @@
+<header class="top-header clearfix" >
+	<div class="container-fluid mobileView">
+		
+		<div  class="col-xs-4 col-sm-4 col-lg-8 pull-left padLeft0 padRight0">
+		<a class="pull-left logo marTop15"  href="#"><img src="../images/Tllp-logo.png" ></a>
+		</div>
+		
+		<div class="col-xs-8 col-lg-4 pull-right padLeft0 padRight0">
+			<span class="pull-right burger padTop8">
+		          <button type="button" class="btn btn-default btn-lg" ng-click="openAside('left', true)">
+		             <span class="fa fa-bars font25 marTop5"></span>
+		          </button>
+		    </span>
+		    <div class="btn-group userBtn pull-right pad10" dropdown is-open="status.isopen">
+				  <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+					<span class="icon_user float_left">&nbsp; &nbsp;</span><span class="lineHeight30 float_left userNameNone">&nbsp;&nbsp;{{vm.currentUser}}&nbsp;</span> <span class="caret float_left mar14"></span>
+				  </button>
+				  <ul class="dropdown-menu" role="menu">
+					<li><a class="cursor" ng-click="vm.logout()">Logout</a></li>
+				  </ul>
+			</div>
+		</div>	
+	</div>
+</header>

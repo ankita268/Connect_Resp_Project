@@ -1,0 +1,20 @@
+<div class="container-fluid">  
+		<div class="appTitle pull-left">{{ vm.title }}</div>
+		<div class="searchBtn">
+			
+			<a class="fa fa-check font18 cursor iconPad" ng-if="vm.currentUserType==='Internal'" ng-click="vm.nominationAccpet({id: vm.nominationModel})"></a>
+			<span class="font18 iconPad" ng-if="vm.currentUserType==='Internal'">|</span>
+			<a class="fa fa-times font18 cursor iconPad" ng-if="vm.currentUserType==='Internal'" ng-click="vm.nominationReject({id: vm.nominationModel})"></a>
+			<span class="font18 iconPad" ng-if="vm.currentUserType==='Internal'">|</span>
+			<a class="fa fa-history font18 cursor iconPad"  ng-click="vm.openChanheLogPanel({id: vm.id})"></a>
+			<span class="font18 iconPad">|</span>
+			<a class="fa fa-edit font18 iconPad cursor" ui-sref="root.nomination.edit({id: vm.id})"></a>
+			<span class="font18 iconPad">|</span>
+			<a class="fa fa-reply font16 iconPad cursor" ui-sref="root.nomination.list"></a>
+
+		</div>
+	<div class="col-xs-12 col-md-8 padLeft0" ng-init="vm.getViewNomination(vm.id)">
+		<formly-form model="vm.nominationModel" fields="vm.nominationViewFields" >
+		</formly-form>		
+	</div>	
+</div>

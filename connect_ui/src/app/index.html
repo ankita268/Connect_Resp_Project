@@ -1,0 +1,204 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+	<base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/datatables-responsive/css/dataTables.responsive.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/app.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="connectuiApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Header Area -->
+    <div ui-view="header" class="header-bg" ></div>
+
+	<!-- Menu Area -->
+    <div ui-view="menu" class="headerShadow"></div>
+
+	<!-- Body -->
+    <div class="padTop10 minHeight520 mainContainerBg" ui-view="container"></div>
+
+    <!-- Footer Area -->
+	<div ui-view="footer"></div>
+	
+	<div ngplus-overlay
+             ngplus-overlay-delay-in="50"
+             ngplus-overlay-delay-out="500"
+             ngplus-overlay-animation="dissolve-animation">
+            <i class="fa fa-refresh fa-spin"></i>
+            <div class="page-spinner-message overlay-message">Loading...</div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/underscore.string/dist/underscore.string.js"></script>
+    <script src="bower_components/angular-underscore/angular-underscore.js"></script>
+    <script src="bower_components/angular-underscore-string/angular-underscore-string.js"></script>
+    <script src="bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="bower_components/api-check/dist/api-check.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+	<script src="scripts/app.module.js"></script>
+	<script src="scripts/blocks/exception/exception.module.js"></script>
+    <script src="scripts/blocks/logger/logger.module.js"></script>
+    <script src="scripts/blocks/router/router.module.js"></script>
+	<script src="scripts/blocks/module/module.module.js"></script>
+	<script src="scripts/core/core.module.js"></script>
+	<script src="scripts/blocks/exception/exception-handler.provider.js"></script>
+    <script src="scripts/blocks/exception/exception.js"></script>
+    <script src="scripts/blocks/logger/logger.js"></script>
+    <script src="scripts/blocks/router/router-helper.provider.js"></script>
+	<script src="scripts/blocks/module/module-helper.provider.js"></script>
+	 <script src="scripts/blocks/httpinterceptor/httpinterceptor.module.js"></script>
+	<script src="scripts/blocks/httpinterceptor/httpinterceptor.factory.js"></script>
+	<script src="scripts/blocks/filters/filter.module.js"></script>
+	<script src="scripts/blocks/filters/sum.js"></script>
+	<script src="scripts/core/config.js"></script>
+    <script src="scripts/core/constants.js"></script>
+    <script src="scripts/core/angular-bootstrap-file-field.js"></script>
+	<script src="scripts/filter/filter.popover.module.js"></script>
+	<script src="scripts/filter/filter.popover.controller.js"></script>
+	<script src="scripts/filter/filter.popover.directive.js"></script>
+	<script src="scripts/dropdown/dropdown.module.js"></script>	
+	<script src="scripts/dropdown/dropdown.directive.js"></script>	
+	<script src="scripts/sorting/sorting.popover.module.js"></script>
+	<script src="scripts/sorting/sorting.popover.controller.js"></script>
+	<script src="scripts/sorting/sorting.popover.directive.js"></script>
+	
+	<script src="scripts/home/home.module.js"></script>
+	<script src="scripts/home/home.route.js"></script>
+	
+    <script src="scripts/core/core.route.js"></script>
+	
+	<script src="scripts/header/header.module.js"></script>	
+	<script src="scripts/header/header.service.js"></script>
+	<script src="scripts/header/header.controller.js"></script>
+	
+	<script src="scripts/menu/menu.module.js"></script>	
+	<script src="scripts/menu/menu.service.js"></script>
+	<script src="scripts/menu/menu.controller.js"></script>
+	<script src="scripts/menu/menu.directive.js"></script>
+	
+	<script src="scripts/footer/footer.module.js"></script>	
+	<script src="scripts/footer/footer.service.js"></script>
+	<script src="scripts/footer/footer.controller.js"></script>		
+	
+	<script src="scripts/home/home.controller.js"></script>
+	<script src="scripts/books/books.module.js"></script>
+	<script src="scripts/books/books.route.js"></script>
+	<script src="scripts/books/books.service.js"></script>
+	<script src="scripts/books/books.controller.js"></script>
+	<script src="scripts/role/role.module.js"></script>
+	<script src="scripts/role/role.route.js"></script>
+	<script src="scripts/role/role.service.js"></script>
+	<script src="scripts/role/role.controller.js"></script>	
+	
+	<script src="scripts/kitchensink/kitchensink.module.js"></script>
+	<script src="scripts/kitchensink/kitchensink.route.js"></script>
+	<script src="scripts/kitchensink/kitchensink.service.js"></script>
+	<script src="scripts/kitchensink/kitchensink.controller.js"></script>
+	
+	<script src="scripts/nomination/nomination.module.js"></script>
+	<script src="scripts/nomination/nomination.route.js"></script>
+	<script src="scripts/nomination/nomination.service.js"></script>	
+	<script src="scripts/nomination/nomination.controller.js"></script>
+	<script src="scripts/nomination/nomination.changelog.controller.js"></script>
+	<script src="scripts/nomination/nomination.upload.controller.js"></script>
+	
+	<script src="scripts/nominationperiod/nominationperiod.module.js"></script>
+	<script src="scripts/nominationperiod/nominationperiod.route.js"></script>
+	<script src="scripts/nominationperiod/nominationperiod.service.js"></script>	
+	<script src="scripts/nominationperiod/nominationperiod.controller.js"></script>
+	  
+	<script src="scripts/statement/statement.module.js"></script>
+	<script src="scripts/statement/statement.route.js"></script>
+	<script src="scripts/statement/statement.service.js"></script>
+	<script src="scripts/statement/statement.controller.js"></script>
+	
+	<script src="scripts/group/group.module.js"></script>
+	<script src="scripts/group/group.route.js"></script>
+	<script src="scripts/group/group.service.js"></script>
+	<script src="scripts/group/group.controller.js"></script>
+	
+	<script src="scripts/program/program.module.js"></script>
+	<script src="scripts/program/program.route.js"></script>
+	<script src="scripts/program/program.service.js"></script>
+	<script src="scripts/program/program.controller.js"></script>
+	<script src="scripts/program/program.dialog.controller.js"></script>
+	
+	<script src="scripts/linefill/linefill.module.js"></script>
+	<script src="scripts/linefill/linefill.route.js"></script>
+	<script src="scripts/linefill/linefill.service.js"></script>
+	<script src="scripts/linefill/linefill.controller.js"></script>
+	
+    <script src="scripts/delivery/delivery.module.js"></script>
+	<script src="scripts/delivery/delivery.route.js"></script>
+	<script src="scripts/delivery/delivery.service.js"></script>
+	<script src="scripts/delivery/delivery.controller.js"></script>
+	
+	<script src="scripts/util/util.module.js"></script>
+	<script src="scripts/util/HTTPUtil.js"></script>
+	<script src="scripts/util/BGXUtil.js"></script>
+	
+	<!-- endbuild -->
+</body>
+</html>

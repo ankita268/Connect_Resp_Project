@@ -1,0 +1,11 @@
+<div class="footer">
+	<div class="container-fluid" >	
+		<div class="row">			
+				<ul class="col-xs-12 col-sm-6 col-lg-6 padTop8 listStyleTypeNone" >
+					<li ng-repeat="footer in vm.footers">
+					  <a href="{{ footer.link }}" class="pull-left">{{ footer.name }}</a><div ng-if="!$last" class="pull-left hideInMobile1">&nbsp;&nbsp;|&nbsp </div>
+					</li>   
+				</ul>
+		</div>  
+	</div>
+</div>

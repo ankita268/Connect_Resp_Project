@@ -1,0 +1,17 @@
+ <div class="modal-header">
+         <h4 class="modal-title pad0 appTitle">Upload Nomination</h4>
+     </div>
+     <div class="modal-body padBtm20 padTop10">
+        <div class="form-group has-feedback">
+	<div class="col-sm-2">
+		<file-field class="btn" ng-model="uploadFile" ng-class="{'btn-success':uploadFile}">Select File</file-field> 
+	</div>
+	<div class="col-sm-10 padTop3 padLeft20">
+		{{uploadFile.name}}
+	</div>
+	   </div>
+     </div>
+     <div class="modal-footer">
+		 <button class="btn btn-default submitBtn customBtn marRight15" ng-click="vm.upload()">Upload</button>
+         <button class="btn btn-default cancelBtn customBtn" ng-click="vm.cancel()">cancel</button>
+     </div>

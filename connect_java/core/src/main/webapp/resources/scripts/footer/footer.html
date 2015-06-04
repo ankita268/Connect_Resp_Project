@@ -1,0 +1,12 @@
+<div class="footer"> <div class="container"> <!-- My Footer Starts--> <!-- Initial footer code - commenting it for future reference --> <!-- 
+	<div class="col-md-3 col-sm-3 text-left"  ng-repeat="footer in vm.footers">
+		<div style="padding:10px; height:150px;" class="bg_white footer-text-align">
+			<span class="caps bold">{{ footer.name | uppercase }}</span>
+			<div class="line-1"></div>
+			<ul>
+				<li  ng-repeat="link in footer.list"><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer"> &#9400; 2015 Bridge-X Technologies. All rights reserved </div>
+	--> <div class="row"> <ul class="list-unstyled col-xs-12 col-md-8 padTop8 padLeft30"> <li ng-repeat="footer in vm.footers"> <a href="{{ footer.link }}" class="pull-left">{{ footer.name }}</a><div ng-if="!$last" class="pull-left">&nbsp;&nbsp;|&nbsp </div> </li> </ul> <div class="col-xs-12 col-md-4 footerText padTop8 textAlignRight"> &#9400; 2015 Bridge-X Technologies. All rights reserved </div> </div><!--/row--> <!-- My Footer Ends--> </div> </div>

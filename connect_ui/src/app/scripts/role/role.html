@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left">{{ vm.title }}</div>
+	
+	<div class="searchBtn ">			
+			<a bgx-filter-popover filter="vm.filter" search="vm.search" module="role" class="fa fa-search font18 pad10" ></a>
+			<span class="font18 pad5">|</span>
+			<a class="fa fa-upload font18 pad10 cursor"></a>
+			<span class="font18 pad5">|</span>
+			<a class="fa fa-download font18 pad10 cursor" popover="Under Development - Planned" popover-placement="bottom"></a>			
+			<span class="font18 pad5">|</span>
+			<!-- <a class="fa fa-plus font18 pad10 cursor" ui-sref="root.role.add"></a>		 -->
+			<a class="fa fa-plus font18 pad10 cursor" href="role/add"></a>
+	</div>
+	
+	<table id="roleDataTable" datatable="roleDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table>
+	
+</div>

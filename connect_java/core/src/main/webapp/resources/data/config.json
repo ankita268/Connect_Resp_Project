@@ -1,0 +1,12 @@
+{
+	"data": {
+		"httpconfig": {
+			"timeout": "5000",
+			"limit":"5"
+		},
+		"userprofile": {
+			"currentuser":"jthakkar",
+			"contenttypes": [{"group":"home"},{"group":"role"},{"group":"book"},{"group":"nomination"},{"group":"kitchensink"},{"group":"group"},{"group":"statement"},{"group":"linefill"}]
+		}
+	}
+}

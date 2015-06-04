@@ -1,0 +1,45 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left">{{ vm.title }}</div>
+	
+	<div class="searchBtn ">
+		<a bgx-filter-popover filter="vm.filter" search="vm.search" module="nomination" class="fa fa-search font18 iconPad" ></a>
+		<span class="font18 iconPad">|</span>
+		 <a  class="fa fa-upload font18 iconPad cursor" ng-click="vm.openUploadNomination()"></a>
+		<span class="font18 iconPad">|</span>
+		<a class="fa fa-download font18 iconPad cursor" ng-click="vm.downloadXls()" ></a> 
+		<form id="downloadForm" action="" method="post" style="display: none;">
+			<a class="fa fa-download font18 iconPad cursor" ></a>
+			</form>
+		<span class="font18 iconPad">|</span>
+		<a href="#/nomination/add" class="fa fa-plus font18 iconPad cursor"></a>
+	</div>
+	
+	<!-- 
+	<table id="nominationDataTable" datatable="nominationDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table>
+	 -->
+	<section id="flip-scroll" >
+		<table class="table-bordered table-striped table-condensed cf table1020">
+			<thead class="cf">
+				<tr>
+					<th ng-repeat="header in vm.table.columns" ng-if="header.id != vm.table.groupBy" ng-class="vm.applyTypeClass(header.options)">{{header.title}}</th>									 
+				</tr>
+			</thead>
+			<tbody ng-repeat="(key, value) in vm.data | groupBy: vm.table.groupBy">
+				<tr>
+					<td colspan="{{vm.table.columns.length - 1}}">{{key}}</td>					
+				</tr>
+				<tr ng-repeat="row in value" >
+					<td ng-switch on="header.id" ng-repeat="header in vm.table.columns" ng-if="header.id != vm.table.groupBy">
+						<!-- <div ng-switch-when="id"><a class="cursor" ng-click="vm.redirectToViewPage(row)">{{row[header.id]}}</a></div> -->
+						<div ng-switch-when="id"><a class="cursor"  ui-sref="root.nomination.view({id: {{row[header.id]}}})" >{{row[header.id]}}</a></div>
+						<div ng-switch-when="status"><div class="font12  pad5 {{row[header.id] | lowercase}} borderNone txtLeft">{{row[header.id]}}</div></div>
+						<div ng-switch-default>{{row[header.id]}}</div>
+					</td>
+				</tr>				
+			</tbody>
+		</table>
+	</section>
+	<div>
+		<pagination total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" boundary-links="true" rotate="false" ng-change="vm.pageChange()"></pagination>
+	</div>
+</div> 

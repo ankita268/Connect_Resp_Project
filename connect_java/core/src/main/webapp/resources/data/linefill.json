@@ -1,0 +1,131 @@
+{
+	"data": {
+		"datasource":{
+			"list":{ 
+				"method": "POST",
+				"url":"core/linefill/list",
+				"bypassErrorInterceptor":"false"
+			},
+			"period":{ 
+				"method": "POST",
+				"url":"core/linefill/period",
+  				"bypassErrorInterceptor":"false"
+			},
+			"type":{ 
+				"method": "POST",
+				"url":"core/linefill/type",
+  				"bypassErrorInterceptor":"false"
+			},
+			"shipper":{ 
+				"method": "POST",
+				"url":"core/linefill/shipperList",
+				"bypassErrorInterceptor":"false"
+			},
+			"view":{
+				"method": "POST",
+				"url":"core/linefill/view",
+				"bypassErrorInterceptor":"false"
+			},
+			"edit":{
+				"method": "POST",
+				"url":"core/linefill/update",
+				"bypassErrorInterceptor":"false"
+			}
+		},
+		"moduleconfigs" : {
+			"list": {
+				"serverSide":"true",
+				"responsive":"true",
+				"ajax":{				
+					"url":"core/linefill/list",
+					"dataSrc":"aoData",
+					"method":"POST",
+					"data": {						  
+					   "action": "search",
+					   "sort": "",
+					   "length":20							   
+					}
+				},	
+				"searching": false,
+				"ordering": false,
+				"lengthChange": false,
+				"displayLength":20,
+				"pagingType": "full_numbers",
+				"processing": false,
+				"aoColumns":  [{
+					"mData":"currentLinefill",		
+					"sTitle":"Current Line Fill",
+					"sClass":"textAlignRight",
+					"sWidth":"120"
+				},{
+					"mData":"newLinefill",		
+					"sTitle":"New Line Fill",
+					"sClass":"textAlignRight",
+					"sWidth":"120"
+				}],
+				"drawCallback": ""
+			},
+			"filter": [{
+				"name":"period",
+				"displayName":"Period",
+				"type":"monthselect",
+				"options": 
+				{
+				  "from":"from",
+				  "to":"to",
+				  "field":"period",
+				  "fromData": [],
+				  "toData": []
+				},						
+				"data": []			
+			},{
+				"name":"type",
+				"displayName":"Type",
+				"type":"list",
+				"options": {
+					"multiselect":"true", 
+					"search":"false"
+				},					
+				"data": []
+			},{
+				"name":"shipper",
+				"displayName":"Shipper",
+				"type":"list",
+				"options": {
+					"multiselect":"true", 
+					"search":"true"
+				},					
+				"data": []
+			}],
+			"edit":[{
+				    "key": "period",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				     	"label": "Period",
+				     	"placeholder":"..."
+				    }
+			},{
+				    "key": "shipperName",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				     	"label": "Shipper",
+				     	"placeholder":"..."
+				    }
+			},{
+				    "key": "currentLinefill",
+				    "type": "horizontalInput",
+				    "templateOptions": {
+				     	"label": "Your current Line Fill requirement is (bbls)",
+				     	"pattern": "^(?:[1-9]\\d*|0)(.\\d{2,2})$"
+				    }
+			},{
+				    "key": "newLinefill",
+				    "type": "horizontalInput",
+				    "templateOptions": {
+				     	"label": "Your new Line Fill requirement is (bbls)",
+				     	"pattern": "^(?:[1-9]\\d*|0)(.\\d{2,2})$"
+				    }
+			}]
+		}
+	}
+}

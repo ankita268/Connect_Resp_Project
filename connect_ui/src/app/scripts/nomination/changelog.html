@@ -1,0 +1,36 @@
+<div class="modal-header">
+    
+    <div class="appTitle2 pull-left ng-binding">Nomination - Change Log</div>
+    <div class="padTop10Right5Btm5"> ID: {{vm.changeId.id}}
+    <a class="fa fa-times font18 cursor pull-right iconColor iconInMobile" ng-click="vm.close()"></a>
+    </div>
+</div>
+
+<div class="modal-body container-fluid ng-scope">
+	<section id="flip-scroll">
+	  <table class="table-bordered table-striped table-condensed cf" >
+		<thead class="cf">
+			<tr>
+				<th>Date</td>
+				<th>Username</td>
+				<th>Nomination Change</td>
+				<th>Old Value</td>
+				<th>New Value</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in vm.changeLogList">
+				<td>{{item.datetime}}</td>
+				<td>{{item.username}}</td>
+				<td>{{item.nominationchanges}}</td>
+				<td>{{item.oldvalue}}</td>
+				<td>{{item.newvalue}}</td>
+			</tr>
+		</tbody>
+	   </table>
+	  </section>
+ </div>
+<!-- <div class="modal-footer">
+   <button class="btn btn-warning" ng-click="vm.close()">Close</button>
+</div>
+ -->

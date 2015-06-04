@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <a class="modal-title fa fa-close pull-right font18" ng-click="cancel($event)"></a>
+</div>
+<div class="modal-body">
+
+   <ul class="nav navbar-nav NoMinWidth" ng-repeat="menu in menus">
+	  <li  ng-if="menu.list.length=='0'"><a ng-href="{{ menu.link }}" >{{ menu.name }}</a></li>
+	  <li ng-if="menu.list.length!='0'" class="dropdown mar14 marTopNone">
+		  <div class="btn-group" dropdown is-open="status.isopen" >
+			<a class="dropdown_link" dropdown-toggle ng-disabled="disabled" >
+				{{ menu.name }}  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<li ng-repeat="submenu in menu.list"><a href="{{submenu.link}}">{{ submenu.name }} </a></li>
+			</ul>
+		  </div>
+	  </li>
+  </ul>
+  
+</div>

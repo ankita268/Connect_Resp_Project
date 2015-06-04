@@ -1,0 +1,44 @@
+<div class="container-fluid">  
+	<div class="appTitle pull-left">{{vm.title}}</div>
+	<div class="searchBtn">
+		<i class="fa fa-file-pdf-o font16 pdfIconColor cursor iconPad" ng-click="vm.download(vm.deliveryViewModel.periodYear, vm.deliveryViewModel.periodMonth, vm.deliveryViewModel.carrierID)"></i>
+		<span class="font18 iconPad" ng-if="vm.currentUserType==='Internal'">|</span>
+		<a class="fa fa-edit font18 iconPad cursor" ng-if="vm.currentUserType==='Internal'" ui-sref="root.delivery.edit({year:vm.deliveryViewModel.periodYear, month:vm.deliveryViewModel.periodMonth, id: vm.deliveryViewModel.carrierID})"></a>
+		<span class="font18 iconPad">|</span>
+		<a class="fa fa-reply font16 iconPad cursor" ui-sref="root.delivery.list"></a>
+	</div>
+    <div class="col-xs-12 col-md-8 padLeft0" ng-init="vm.getData('view')">
+		<form class="form-horizontal">
+			<formly-form model="vm.deliveryViewModel" fields="vm.deliveryViewFields" >
+			</formly-form>
+	    </form>
+    </div>
+    <div class="col-xs-12 padLeft0 padRight0">
+	    <section id="flip-scroll" >
+		    <table class="table-bordered table-striped table-condensed cf">
+				<thead class="cf">
+					<tr>
+						<th ng-repeat="header in vm.table.columns" ng-class="vm.applyTypeClass(header.options)" class="lineHeight25">{{header.title}}</th>								 
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in vm.deliveryViewModel.dataList">
+						<td ng-repeat="header in vm.table.columns" class="lineHeight25" ng-init="vm.colspan = $index" ng-if="header.options.type != 'numeric'"><div ng-if="row[header.id]">{{row[header.id]}}</div><div ng-if="!row[header.id]">&nbsp;</div></td>
+						<td ng-repeat="header in vm.table.columns" class="text-right lineHeight25" ng-if="header.options.type == 'numeric'">{{row[header.id] | number:2}}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+	               <tr>
+						<th colspan="{{vm.colspan + 1}}" class="borderRightNone borderLeftNone lineHeight25"><div class="text-right">Total</div></th>
+						<th ng-repeat="header in vm.table.columns" class="text-right borderRightNone lineHeight25" ng-if="header.options.type == 'numeric'">{{vm.deliveryViewModel.dataList | sumByKey:header.id | number:2}}</th>
+	               </tr>
+	           </tfoot>
+			</table>
+	    </section>
+    </div>
+    <form id="deliveryForm" action="" method="post" style="display: none;">
+		<input type="hidden"  name="periodMonth" id="exportPeriodMonth"/>
+		<input type="hidden"  name="periodYear" id="exportPeriodYear"/>
+		<input type="hidden"  name="carrierID" id="exportCarrierID"/>
+	</form>
+</div>

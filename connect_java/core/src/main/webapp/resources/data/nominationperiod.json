@@ -1,0 +1,71 @@
+{
+	"data": {
+		"datasource":{
+			"list":{ 
+				"url":"core/nominationperiod",
+				"method": "POST"
+			},
+			"state":{ 
+				"url":"core/nominationperiod/state",
+				"method": "POST",
+				"data":[]
+			},
+			"period":{ 
+				"url":"core/nominationperiod/period",
+				"method": "POST"
+			},			
+			"type":{ 
+				"url":"core/nominationperiod/type",
+				"method": "POST"
+			}				
+		},
+		"moduleconfigs" : {
+			"list": {
+					"serverSide":"true",
+					"responsive":"true",
+					"ajax":{				
+						"url":"core/nominationperiod/list",
+						"dataSrc":"aoData",
+						"method":"POST",
+						"data": {						  
+						   "action": "search",
+						   "sort": "",
+					       "length":20						   
+						} 
+					},	
+					"searching": false,
+					"ordering": false,
+					"lengthChange": false,
+					"displayLength":20,
+					"pagingType": "full_numbers",
+					"processing": false,
+					"aoColumns":  [{
+						"mData":"period",		
+						"sTitle":"Period",
+						"sWidth":"200"
+					},{
+						"mData":"currentstatus",		
+						"sTitle":"Current Status",
+						"sWidth":""
+					}]
+				},
+				"filter": [	{
+								"name":"period",
+								"displayName":"Period",
+								"type":"monthselect",
+								"options": {
+									"from":"from",
+									"to":"to",									
+									"field":"period",
+									"fromData": [],
+									"toData": []
+								},					
+								"data": []			
+							},						   
+						   {"name":"type","displayName":"Type",	"type":"list", "options":{ "multiselect":"true", "search":"false" }, "data":[]}]
+						   
+				
+						   
+		}
+	}
+}

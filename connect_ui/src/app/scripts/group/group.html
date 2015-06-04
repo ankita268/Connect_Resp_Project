@@ -1,0 +1,18 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left">{{ vm.title }}</div>
+	
+	<div class="searchBtn ">
+			
+			<a bgx-filter-popover filter="vm.filter" search="vm.search" module="group" class="fa fa-search font18 iconPad"></a>
+			<span class="font18 iconPad">|</span>
+			<a bgx-sorting-popover sorting="vm.sorting" sort="vm.sort" class="fa fa-sort font18 iconPad cursor"></a>
+			<span class="font18 iconPad">|</span>
+			<!--<a class="btn btn-default"  ng-click="vm.openSearchPopup()"><i class="fa fa-search"></i></a>-->
+			<a class="fa fa-download font18 iconPad cursor" popover="Under Development - Planned" popover-title="Download" popover-placement="bottom"></a>
+			<span class="font18 iconPad">|</span><a class="fa fa-plus font18 iconPad cursor" ui-sref="root.group.add"></a>	
+						
+	</div>
+	
+	<table id="groupDataTable" datatable="groupDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table>
+	
+</div>

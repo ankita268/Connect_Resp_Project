@@ -1,0 +1,563 @@
+{
+	"data": {
+		"datasource":{
+			"list":{ 
+				"url":"core/nomination/list",
+				"method": "POST"
+			},
+			"view":{ 
+				"url":"core/nomination/view",
+				"method": "POST"
+			},
+			"create":{ 
+				"url":"core/nomination/create",
+				"method": "POST"
+			},
+			"update":{ 
+				"url":"core/nomination/update",
+				"method": "POST"
+			},
+			"period":{ 
+				"url":"core/nomination/period",
+				"method": "POST"
+			},
+			"receiptLocation":{ 
+				"url":"core/nomination/receiptLocation",
+				"method": "POST"
+			},
+			"deliveryLocation":{ 
+				"url":"core/nomination/deliveryLocation",
+				"method": "POST"
+			},
+			"shipper":{ 
+				"url":"core/nomination/shipper",
+				"method": "POST"
+			},
+			"type":{ 
+				"url":"core/nomination/type",
+				"method": "POST"
+			},
+			"status":{ 
+				"url":"core/nomination/status",
+				"method": "POST"
+			},
+			"accept":{ 
+				"url":"core/nomination/accept",
+				"method": "POST"
+			},
+			"reject":{ 
+				"url":"core/nomination/reject",
+				"method": "POST"
+			},
+			"download":{ 
+				"url":"core/nomination/download",
+				"method": "POST"
+			},
+			"changelog":{ 
+				"url":"core/nomination/changelog",
+				"method": "POST"
+			}
+			
+		},
+		"moduleconfigs" : {
+			"list": {
+				"columns": [{
+					"id":"id",
+					"title":"ID",
+					"order":"1",
+					"options": {
+						"type": "numeric"
+					}
+				},
+				{
+					"id":"status",
+					"title":"Status",
+					"order":"2",
+					"options": {
+					}
+				},
+				{
+					"id":"shipper",
+					"title":"Shipper",
+					"order":"3",
+					"options": {
+					}
+				},
+				{
+					"id":"receiptLocation",
+					"title":"Receipt Location",
+					"order":"4",
+					"options": {
+					}
+				},
+				{
+					"id":"connectingCarrier",
+					"title":"Connecting Carrier",
+					"order":"5",
+					"options": {
+					}
+				},
+				{
+					"id":"connectingShipper",
+					"title":"Connecting Shipper",
+					"order":"6",
+					"options": {
+					}
+				},
+				{
+					"id":"commitedBPD",
+					"title":"Commited BPD",
+					"order":"7",
+					"options": {
+					}
+				},
+				{
+					"id":"uncommitedBPD",
+					"title":"Uncommited BPD",
+					"order":"8",
+					"options": {
+					}
+				},
+				{
+					"id":"linefill",
+					"title":"Line Fill",
+					"order":"9",
+					"options": {
+					}
+				},
+				{
+					"id":"totalReceipts",
+					"title":"Total Receipts",
+					"order":"10",
+					"options": {
+					}
+				},
+				{
+					"id":"availableForDeliver",
+					"title":"Available For Deliver",
+					"order":"11",
+					"options": {
+					}
+				},
+				{
+					"id":"deliveryLocation",
+					"title":"Delivery Location",
+					"order":"12",
+					"options": {
+					}
+				},
+				{
+					"id":"deliveringConnectingCarrier",
+					"title":"Delivering Connecting Carrier",
+					"order":"13",
+					"options": {
+					}
+				},
+				{
+					"id":"deliveredBarrelsPerDay",
+					"title":"Delivered Barrels Per Day(BPD)",
+					"order":"14",
+					"options": {
+					}
+				},
+				{
+					"id":"deliveringShipper",
+					"title":"Delivering Shipper",
+					"order":"15",
+					"options": {
+					}
+				},
+				{
+					"id":"period",
+					"title":"Period",
+					"order":"16",
+					"options": {
+					}
+				}],
+				"groupBy": "period"
+			 },
+				"filter": [	{
+								"name":"period",
+								"displayName":"Period",
+								"type":"monthselect",
+								"options": {
+									"from":"from",
+									"to":"to",									
+									"field":"period",
+									"fromData": [],
+									"toData": []
+								},					
+								"data": []			
+							},
+						   {"name":"status","displayName":"Status",	"type":"list", "options":{ "multiselect":"true", "search":"false" }, "data":[]},
+						   {"name":"type","displayName":"Type",	"type":"list", "options":{ "multiselect":"true", "search":"false" }, "data":[]}],
+						   
+				"view": [{
+				    "key": "id",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				     	"label": "ID",
+				     	"placeholder":"..."
+				    }
+				  },{
+				    "key": "period",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				  	    "label": "Period",
+				     	"placeholder":"..."
+				    }
+				  },{
+				    "key": "shipper",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Shipper",
+				      "placeholder":"..."				      
+				    }
+				  },{
+				    "key": "status",
+				    "type": "horizontalDisplayFieldWithColour",
+				    "templateOptions": {
+				      "label": "Status",
+				     	"placeholder":"..."
+				      }
+				    },{
+				    "key": "receiptLocation",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Receipt Location",
+				     	"placeholder":"..."				     	
+				    }
+				    },{
+				    "key": "connectingCarrier",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Connecting Carrier",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "connectingShipper",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Connecting Shipper",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "commitedBPD",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Committed BPD",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "uncommitedBPD",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Uncommitted BPD",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "lineFill",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Line Fill",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "totalReceipts",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Total Receipts",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "availableForDeliver",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Available for Deliver",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "deliveryLocation",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Deliver Location",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "deliveringConnectingCarrier",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Delivering Connecting Carrier",
+				     	"placeholder":"..."
+				    }
+				    },{
+				    "key": "deliveringShipper",
+				    "type": "horizontalDisplayField",
+				    "templateOptions": {
+				      "label": "Delivering Shipper",
+				     	"placeholder":"..."
+				    }
+			  }],
+				"create": [{
+						    "key": "id",
+						    "type": "horizontalDisplayField",
+						    "templateOptions": {
+						      "label": "ID",
+				     			"placeholder":"..."
+						    }
+						  },
+						  {
+							"key": "period",
+							"type": "horizontalSelect",
+							"templateOptions": {
+							  "label": "Period",
+							  "placeholder": "Last Name",
+							  "valueProp": "value",
+							  "required": "true",
+							  "options": []
+							}
+						  },
+						  {
+							"key": "receiptLocation",
+							"type": "horizontalSelect",
+							"templateOptions": {
+							  "label": "Receipt Location",
+							  "placeholder": "Last Name",
+							  "valueProp": "value",
+							   "required": "true",
+							  "options": []
+							}
+						  },
+						  {
+							"key": "connectingCarrier",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Connecting Carrier",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+							"key": "connectingShipper",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Connecting Shipper",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+							"key": "commitedBPD",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Commited BPD",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "uncommitedBPD",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "UnCommited BPD",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "lineFill",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Line Fill",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "totalReceipts",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Total Receipts",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "deliveryLocation",
+							"type": "horizontalSelect",
+							"templateOptions": {
+							  "label": "Delivery Location",
+							  "valueProp": "value",
+							  "options": []
+							}
+						  },
+						  {
+							"key": "deliveringConnectingCarrier",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Delivering Connecting Carrier",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+							"key": "deliveredBarrelsPerDay",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Delivered Barrels per Day(BPD)",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "deliveringShipper",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Delivering Shipper",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+						    "key": "status",
+						    "type": "horizontalDisplayFieldWithColour",
+						    "templateOptions": {
+						      "label": "Status"
+						    },
+						    "data": {
+						        "class":"new"
+						    }
+						  }],
+				"edit": [{
+						    "key": "id",
+						    "type": "horizontalDisplayField",
+						    "templateOptions": {
+						      "label": "ID",
+				     		"placeholder":"..."
+						    }
+						  },
+						  {
+							"key": "period",
+							"type": "horizontalDisplayField",
+							"templateOptions": {
+							  "label": "Period",
+				     		"placeholder":"..."
+							}
+						  },
+						  {
+							"key": "receiptLocation",
+							"type": "horizontalSelect",
+							"templateOptions": {
+							  "label": "Receipt Location",
+							  "placeholder": "Last Name",
+							  "valueProp": "value",
+							   "required": "true",
+							  "options": []
+							}
+						  },
+						  {
+							"key": "connectingCarrier",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Connecting Carrier",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+							"key": "connectingShipper",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Connecting Shipper",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+							"key": "commitedBPD",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Commited BPD",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "uncommitedBPD",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "UnCommited BPD",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "lineFill",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Line Fill",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "totalReceipts",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Total Receipts",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "deliveryLocation",
+							"type": "horizontalSelect",
+							"templateOptions": {
+							  "label": "Delivery Location",
+							  "valueProp": "value",
+							  "options": []
+							}
+						  },
+						  {
+							"key": "deliveringConnectingCarrier",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Delivering Connecting Carrier",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+							"key": "deliveredBarrelsPerDay",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Delivered Barrels per Day(BPD)",
+							  "placeholder": "Enter Text",
+							  "pattern": ""
+							}
+						  },
+						  {
+							"key": "deliveringShipper",
+							"type": "horizontalInput",
+							"templateOptions": {
+							  "label": "Delivering Shipper",
+							  "placeholder": "Enter Text"
+							}
+						  },
+						  {
+						    "key": "status",
+						    "type": "horizontalDisplayFieldWithColour",
+						    "templateOptions": {
+						      "label": "Status"
+						    },
+						    "data": {
+						        "class":"new"
+						    }
+						  },
+						  {
+						    "key": "markForDeleting",
+						    "type": "horizontalToggleField",
+						    "templateOptions": {
+						      "label": "Mark for Deleting"
+						    },
+						    "data": {
+						        "option1":"YES",
+						        "option2":"NO"
+						    }
+						  }]		   
+		}
+	}
+}

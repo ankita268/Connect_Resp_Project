@@ -1,0 +1,122 @@
+{
+	"data":{
+		"datasource": {
+			"list":{ 
+				"url":"core/book",
+				"method": "POST"
+			},
+			"add":{ 
+				"url":"core/book/add",
+				"method": "POST"
+			},
+			"update":{ 
+				"url":"core/book/update",
+				"method": "PUT"
+			},
+			"delete":{ 
+				"url":"core/book/",
+				"method": "DELETE"
+			},
+			"get": { 
+				"url":"core/book/",
+				"method": "POST"
+			}
+		},
+		"moduleconfigs": {
+			"list": {
+				"serverSide":"true",
+				"responsive":"true",
+				"ajax":{				
+					"url":"core/book",
+					"dataSrc":"aoData",
+					"method":"POST"
+				},	
+				"searching": false,
+				"ordering": false,
+				"lengthChange": false,
+				"pagingType": "full_numbers",
+				"processing": false,
+				"aoColumns":  [{
+					"mData":"id",
+					"sTitle":"Id"
+				},{
+					"mData":"name",		
+					"sTitle":"New Name"
+				},{
+					"mData":"author",		
+					"sTitle":"Author"
+				},{
+					"mData":"releaseTime",		
+					"sTitle":"releaseTime"
+				}],
+				"drawCallback": ""
+			},
+			"filter": [{
+				"name":"roleName",
+				"displayName":"Role Name",
+				"type":"text",
+				"options": {},					
+				"data":[]
+			},{
+				"name":"bookType",
+				"displayName":"Book Type",
+				"type":"list",
+				"options": {
+					"multiselect":"true", 
+					"search":"false"
+				},					
+				"data": ["Internal","External"]
+			},{
+				"name":"bookPeriod",
+				"displayName":"Period",
+				"type":"monthselect",
+				"options": {
+					"from":"from",
+					"to":"to"
+				},					
+				"data": ["May, 2015","June, 2015","July, 2015","August, 2015"]			
+			}],
+			"create": [{
+			    "key": "firstName",
+			    "type": "horizontalInput",
+			    "templateOptions": {
+			      "label": "First Name",
+			      "placeholder": "First Name",
+			      "required": "true",
+			      "maxlength": "10",
+          		  "minlength": "5"
+			    }
+			  },
+			  {
+			    "key": "lastName",
+			    "type": "horizontalInput",
+			    "templateOptions": {
+			      "label": "Last Name",
+			      "placeholder": "Last Name",
+			      "pattern": "^(?:[1-9]\\d*|0)(.\\d{2,2})$"
+			    }
+			  },{
+			    "key": "name",
+			    "type": "horizontalDisplayField",
+			    "templateOptions": {
+			      "label": "Name"
+			    }
+			  },{
+			    "key": "name",
+			    "type": "horizontalDisplayField",
+			    "templateOptions": {
+			      "label": "Name"
+			    }
+			  },{
+			    "key": "status",
+			    "type": "horizontalDisplayFieldWithColour",
+			    "templateOptions": {
+			      "label": "Status"			      
+			    },
+			    "data": {
+			        "relatedKey":"type"
+			    }
+			  }]
+		}
+	}
+}

@@ -1,0 +1,81 @@
+{
+	"data": {
+		"datasource":{
+			"list":{ 
+				"url":"statement/list",
+				"method": "POST"
+			},
+			"period":{ 
+				"url":"core/statement/period",
+				"method": "POST"
+			},
+			"type":{ 
+				"url":"core/statement/type",
+				"method": "POST"
+			},
+			"shipper":{ 
+				"url":"core/statement/shipperList",
+				"method": "POST"
+			}
+		},
+		"moduleconfigs" : {
+			"list": {
+				"serverSide":"true",
+				"responsive":"true",
+				"ajax":{				
+					"url":"core/statement/list",
+					"dataSrc":"aoData",
+					"method":"POST",
+					"data": {						  
+					   "action": "search",
+					   "sort": "",
+					   "length":20							   
+					}
+				},	
+				"searching": false,
+				"ordering": false,
+				"displayLength":20,
+				"lengthChange": false,
+				"pagingType": "full_numbers",
+				"processing": false,
+				"aoColumns":  [{
+					"mData":"period",		
+					"sTitle":"Period",
+					"sWidth":"250"
+				}],
+				"drawCallback": ""
+			},
+			"filter": [{
+				"name":"period",
+				"displayName":"Period",
+				"type":"monthselect",
+				"options": {
+					"from":"from",
+					"to":"to",									
+					"field":"period",
+					"fromData": [],
+					"toData": []
+				},					
+				"data": []			
+			},{
+				"name":"type",
+				"displayName":"Type",
+				"type":"list",
+				"options": {
+					"multiselect":"true", 
+					"search":"false"
+				},					
+				"data": []
+			},{
+				"name":"shipper",
+				"displayName":"Shipper",
+				"type":"list",
+				"options": {
+					"multiselect":"true", 
+					"search":"true"
+				},					
+				"data": []
+			}]
+		}
+	}
+}

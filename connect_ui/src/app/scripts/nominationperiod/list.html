@@ -1,0 +1,9 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left">{{ vm.title }}</div>
+	
+	<div class="searchBtn ">
+			<a bgx-filter-popover filter="vm.filter" search="vm.search"  placement="bottomRight"  module="nomination" class="fa fa-search font18 iconPad" ></a>
+	</div>
+	
+	<table id="nominationPeriodDataTable" datatable="nominationPeriodDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table>
+ </div> 

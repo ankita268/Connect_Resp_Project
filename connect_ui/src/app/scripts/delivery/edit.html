@@ -1,0 +1,41 @@
+<div class="container-fluid">  
+	<div class="appTitle pull-left">{{vm.title}}</div>
+	<div class="col-xs-12 col-md-8 padLeft0" ng-init="vm.getData('edit')">
+		<form class="form-horizontal">
+			<formly-form model="vm.deliveryViewModel" fields="vm.deliveryViewFields" >
+			</formly-form>
+	    </form>
+    </div>
+    <form name="vm.deliveryEditForm" ng-submit="vm.submit()" novalidate>
+	    <div class="col-xs-12 padLeft0 padRight0">
+		    <section id="flip-scroll" >
+			    <table class="table-bordered table-striped table-condensed cf">
+					<thead class="cf">
+						<tr>
+							<th ng-repeat="header in vm.table.columns" class="lineHeight25" ng-class="vm.applyTypeClass(header.options)">{{header.title}}</th>								 
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="row in vm.deliveryViewModel.dataList">
+							<td ng-repeat="header in vm.table.columns" class="lineHeight25" ng-init="vm.colspan = $index" ng-if="header.options.type != 'numeric'"><div ng-if="row[header.id]">{{row[header.id]}}</div><div ng-if="!row[header.id]">&nbsp;</div></td>
+							<td ng-repeat="header in vm.table.columns" class="text-right lineHeight25" ng-if="header.options.type == 'numeric' && header.id != 'actualBblsPerMonth'">{{row[header.id] | number:2}}</td>
+							<td ng-repeat="header in vm.table.columns" class="text-right lineHeight25" ng-if="header.options.type == 'numeric' && header.id == 'actualBblsPerMonth'">
+								<input class="text-right" type="text" min="0" required ng-pattern="/^[0-9][0-9]{0,2}(?:,?[0-9]{3}){0,3}(?:\.[0-9]{1,2})?$/" ng-model="row[header.id]"/>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+			            <tr class="borderRigh1">
+			            	<th colspan="{{vm.colspan + 1}}" class="borderRightNone borderLeftNone lineHeight25"><div class="text-right">Total</div></th>
+			                <th ng-repeat="header in vm.table.columns" class="text-right borderRightNone lineHeight25" ng-if="header.options.type == 'numeric'">{{vm.deliveryViewModel.dataList | sumByKey:header.id | number:2}}</th>
+			            </tr>
+			        </tfoot>
+				</table>
+				<div class="searchBtn">
+					<button type="submit" class="btn btn-default submitBtn customBtn marTop15 marRight15 marBtm15" >Submit</button>
+					<button type="button" class="btn btn-default cancelBtn customBtn marTop15 marBtm15" ng-click="vm.cancel()">Cancel</button>
+				</div>
+			</section>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,14 @@
+<div class="container-fluid">
+	<div class="appTitle pull-left">{{ vm.title }}</div>
+	
+	<div class="searchBtn ">
+		<a bgx-filter-popover filter="vm.filter" placement="bottomRight"  search="vm.search" module="statement" class="fa fa-search font18 iconPad  cursor"></a>
+	</div>
+	
+	<table id="statementDataTable" datatable="statementDataTable" dt-options="vm.dtOptions" dt-instance="vm.dtInstanceCallback" class="row-border hover widthAuto"></table>
+	
+	<form id="statementForm" action="" method="post" style="display: none;">
+		<input type="hidden"  name="period" id="periodExportID"/>
+		<input type="hidden"  name="shippernumber" id="shippernumberExportID"/>
+	</form>
+</div>

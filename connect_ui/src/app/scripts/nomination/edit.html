@@ -1,0 +1,16 @@
+<div class="container-fluid" ng-init="vm.getEditNominationConfig()">
+	<div class="appTitle pull-left col-xs-12 col-md-8 padLeft0">{{ vm.title }}</div>
+	
+	<div class="col-xs-12 col-md-8 padLeft0">
+
+	<form name="vm.nominationEditform" class="form-horizontal" ng-submit="vm.update(vm.nominationModel)" novalidate>
+        <formly-form model="vm.nominationModel" fields="vm.nominationFields" >
+  		<div class="col-sm-4 "> </div>
+  		<div class="col-sm-8 labelRight">
+  		<button type="submit" class="btn btn-default submitBtn customBtn marTop15 marBtm15 marRight15" >Submit</button>
+  		<button type="button" class="btn btn-default cancelBtn customBtn marTop15 marBtm15" ui-sref="root.nomination.view">Cancel</button>
+  		</div>
+		</formly-form>
+    </form>
+    </div>	
+</div>

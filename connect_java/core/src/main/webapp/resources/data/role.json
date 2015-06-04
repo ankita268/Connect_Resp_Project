@@ -1,0 +1,73 @@
+{
+	"data": {
+		"datasource": {
+			"list":{ 
+				"url":"core/role",
+				"method": "POST"
+			},
+			"add":{ 
+				"url":"core/role/createrole",
+				"method": "POST"
+			},
+			"update":{ 
+				"url":"core/role/update",
+				"method": "PUT"
+			},
+			"delete":{ 
+				"url":"core/role/",
+				"method": "DELETE"
+			},
+			"get": { 
+				"url":"core/role/",
+				"method": "POST"
+			},
+			"isExistRolename": { 
+				"url":"core/role/isExistRolename",
+				"method": "POST"
+			}
+		},
+		"moduleconfigs": {
+			"list": {
+				"serverSide":"true",
+				"responsive":"true",
+				"ajax":{				
+					"url":"core/role",
+					"dataSrc":"aoData",
+					"method":"POST",
+					"data": {						  
+					   "action": "search",
+					   "sort": "",
+					   "length":20							   
+					}
+				},	
+				"searching": false,
+				"ordering": false,
+				"lengthChange": false,
+				"displayLength":20,
+				"pagingType": "full_numbers",
+				"processing": false,
+				"aoColumns":  [{
+					"mData":"type",		
+					"sTitle":"Role Type"
+				},{
+					"mData":"accessLevel",		
+					"sTitle":"Access Level"
+				},{
+					"mData":"usersCount",		
+					"sTitle":"Users"
+				},{
+					"mData":"groupCount",		
+					"sTitle":"Group"
+				},{
+					"mData":"status",		
+					"sTitle":"Status"
+				}]
+			},
+			"filter": [{"name":"roleName",	"displayName":"Role Name",	"type":"text", "options":{}, "data":[]}],
+			"sorting":[{"id": "1", "sort": "name", "dir":"Asc", "text":"Role Name By Ascending"},
+						{ "id": "2", "sort": "name", "dir":"Desc", "text":"Role Name By Descending"},
+						{ "id": "3", "sort": "type", "dir":"Asc", "text":"Role Type By Ascending"},
+						{ "id": "4", "sort": "type", "dir":"Desc", "text":"Role Type By Descending"}]
+		}
+	}
+}

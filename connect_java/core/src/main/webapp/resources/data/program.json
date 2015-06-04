@@ -1,0 +1,68 @@
+{
+	"data": {
+		"datasource": {
+			"list":{ 
+				"url":"core/program/documents",
+				"method": "POST"
+			},
+			"listPrograms":{ 
+				"url":"core/program/programs",
+				"method": "POST"
+			},
+			"masterlist":{ 
+				"url":"core/program/taglist",
+				"method": "POST"
+			},
+			"create":{ 
+				"url":"core/program/create",
+				"method": "POST"
+			},
+			"update":{ 
+				"url":"core/program/update",
+				"method": "POST"
+			},
+			"deleteDocument":{ 
+				"url":"core/program/delete",
+				"method": "POST"
+			},
+			"viewDocument": {
+				"url":"core/program/viewDocument",
+				"method": "POST"
+			},
+			"download": {
+				"url":"core/program/viewDocument",
+				"method": "POST"
+			}
+		},
+		"moduleconfigs": {
+			"list": {
+				"serverSide":"true",
+				"responsive":"true",
+				"ajax":{				
+					"url":"core/program/documents",
+					"dataSrc":"aoData",
+					"method":"POST",
+					"data": {						  
+					   "action": "search",
+					   "sort": "",
+					   "id":"",
+					   "length":20					   
+					}
+				},	
+				"searching": false,
+				"ordering": false,
+				"lengthChange": false,
+				"displayLength":20,
+				"pagingType": "full_numbers",
+				"processing": false,
+				"aoColumns":  []
+			},
+			"filter": [
+			{"name":"documentName",	"displayName":"Document","type":"text", "options":{}, "data":[]},
+			{"name":"role","displayName":"Role", "type":"list", "options":{ "multiselect":"true", "search":"true" }, "data":[]},
+			{"name":"program","displayName":"Program", "type":"list", "options":{ "multiselect":"true", "search":"true" }, "data":[]},
+			{"name":"shipper","displayName":"Shipper", "type":"list", "options":{ "multiselect":"true", "search":"true" }, "data":[]}],
+			"sorting":[{"id": "1", "sort": "name", "dir":"Asc", "text":"Document Name By Ascending"}]
+		}
+	}
+}

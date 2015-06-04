@@ -1,0 +1,85 @@
+<div class="container-fluid">
+
+	<div class="appTitle pull-left col-xs-12 col-md-8 padLeft0">{{ vm.title }}</div>
+	<div class="searchBtn">
+		<a class="fa fa-reply font16 cursor iconPad" ui-sref="root.role.list"></a>
+	</div>
+
+	<form class="form-horizontal" role="form" name="vm.addRoleForm"  ng-submit="vm.submit()" novalidate>
+	<div class="col-xs-12 col-md-8 padLeft0">
+	
+	 
+	   <div class="form-group has-feedback">
+	      <label class="col-sm-2 control-label " for="inputSuccess">Role Name</label>
+		      <div class="col-sm-10 ">	
+					<input id="roleName" class="form-control" name="roleName" type="text" ng-model="vm.roleName" ng-blur="vm.isExistRole(vm.roleName)" required/>
+			        <span class="error" ng-show="vm.addRoleForm.roleName.$error.required">Role name required</span>		
+			        <span class="fa fa-check form-control-feedback has-success green" ng-show="vm.roleExist=='false'"></span>		
+					<span class="fa fa-warning form-control-feedback yellow"  ng-show="vm.roleExist=='true'"></span>
+		      </div>
+	 	</div> 
+   
+	   <div class="form-group has-feedback">
+	      <label class="col-sm-2 control-label " for="inputSuccess">Discription</label>
+	      <div class="col-sm-10 ">
+			 <textarea class="form-control" name="comment" ng-model="vm.comment" rows="5" id="comment" required></textarea>  
+			 <span class="error" ng-show="vm.addRoleForm.comment.$error.required">Description is required.</span>
+	      </div>
+	   </div>
+   
+	   <div class="form-group">
+	      <label class="col-sm-2 control-label " for="sel1">Role Type</label>
+	      <div class="col-sm-10 ">
+			 <select class="form-control" name="roletype" ng-model="vm.roletype" ng-options="o.value as o.label for o in vm.roletypelist"  bgx-selectbox="Select Item" required></select>
+			 <span class="error" ng-show="vm.addRoleForm.roletype.$error.required">Please select one role type.</span>
+	      </div>
+	   </div>
+   
+   		<div class="form-group">
+	      <label class="col-sm-2 control-label " for="sel1">Access Level</label>
+	      <div class="col-sm-10 ">
+			 <select  class="form-control" name="accesslevel" ng-model="vm.accesslevel" ng-options="o.value as o.label for o in vm.roleAccessLevelist" bgx-selectbox="Select Item" required></select>
+			 <span class="error" ng-show="vm.addRoleForm.accesslevel.$error.required">Please select one role access level.</span>
+	      </div>
+   	  </div>
+   
+	    <div class="form-group">
+	      <label class="col-sm-2 control-label " for="sel1">Status</label>
+	      <div class="col-sm-10 ">
+			<select  class="form-control" name="status"  ng-model="vm.status" ng-options="o.value as o.label for o in vm.statustype" bgx-selectbox="Select Item" required></select>
+			<span class="error" ng-show="vm.addRoleForm.status.$error.required">Please select one status.</span>
+	      </div>
+	    </div>
+   </div>
+		<div class="col-xs-12 col-md-12 padLeft0">
+			<div class="appTitle pull-left pad5"><i class="fa fa-check-square-o font18">&nbsp;</i>&nbsp;Assign Content</div>
+		</div>	
+		
+		<div class="assignBox" ng-repeat="role in vm.roles">	
+			<label>
+			<div class="assignImageBox">
+				<img  src="../images/screen1.png">
+		  		<input type="checkbox" checklist-model="user.roles" ng-change='vm.onCheck(role)' ng-model="role.id"  checklist-value="role.id">
+			</div>
+			<h5>Title</h5>
+			<p>{{role.text}}</p>
+			</label>
+		</div>
+		
+		 <div class="form-group col-xs-12 col-md-8 padLeft0">
+		   <label class="col-sm-2 control-label hideInMobile" for=""></label>
+		   <div class="col-sm-10 ">
+			   <button type="Submit" class="btn btn-default submitBtn customBtn marRight15">Submit</button>
+			   <button type="button" ng-click="vm.cancel()" class="btn btn-default cancelBtn customBtn">Cancel</button>
+		   </div>
+	    </div>
+    
+   
+  
+  </form>
+</div>
+	
+	
+	
+
+
